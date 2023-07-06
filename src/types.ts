@@ -52,8 +52,9 @@ export type WhisperApiConfig = {
   language?: string
 }
 
-export type RemoveSilencePropTypes = {
+export type FfmpegEncodeProps = {
   showLogs: boolean | undefined
   blob: Blob
   threshold: number
+  removeSilence?: boolean
 }

@@ -1,12 +1,13 @@
 import { ffmpegCoreUrl, silenceRemoveCommand } from './configs'
-import { RemoveSilencePropTypes } from './types'
+import { FfmpegEncodeProps } from './types'
 import { createFFmpeg } from '@ffmpeg/ffmpeg'
 
-export async function removeSilenceWithFfmpeg({
+export async function encodeWithFfmpeg({
   showLogs,
   blob: currentBlob,
   threshold,
-}: RemoveSilencePropTypes): Promise<Blob | null> {
+  removeSilence,
+}: FfmpegEncodeProps): Promise<Blob | null> {
   const ffmpeg = createFFmpeg({
     mainName: 'main',
     corePath: ffmpegCoreUrl,
@@ -18,7 +19,7 @@ export async function removeSilenceWithFfmpeg({
   const buffer = await currentBlob.arrayBuffer()
   console.log({ in: buffer.byteLength })
   ffmpeg.FS('writeFile', 'in.wav', new Uint8Array(buffer))
-  await ffmpeg.run(
+  const ffmpegParams = [
     '-i', // Input
     'in.wav',
     '-acodec', // Audio codec
@@ -27,10 +28,15 @@ export async function removeSilenceWithFfmpeg({
     '96k',
     '-ar', // Audio sample rate
     '44100',
-    '-af', // Audio filter = remove silence from start to end with 2 seconds in between
-    silenceRemoveCommand,
-    'out.mp3' // Output
-  )
+  ]
+  if (removeSilence) {
+    ffmpegParams.push(
+      '-af', // Audio filter = remove silence from start to end with 2 seconds in between
+      silenceRemoveCommand
+    )
+  }
+  ffmpegParams.push('out.mp3')
+  await ffmpeg.run(...ffmpegParams)
   const out = ffmpeg.FS('readFile', 'out.mp3')
   console.log({ out: out.buffer.byteLength, length: out.length })
   ffmpeg.exit()
