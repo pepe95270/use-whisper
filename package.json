@@ -1,6 +1,6 @@
 {
-  "name": "@albertsyh/use-whisper",
-  "version": "0.2.17",
+  "name": "@fusemateo/use-whisper",
+  "version": "0.2.18",
   "description": "React Hook for OpenAI Whisper API with speech recorder and silence removal built-in.",
   "keywords": [
     "react",
@@ -17,11 +17,11 @@
     "remove",
     "removal"
   ],
-  "homepage": "https://github.com/albertsyh/use-whisper#readme",
-  "bugs": "https://github.com/albertsyh/use-whisper/issues",
+  "homepage": "https://github.com/ardakkk/use-whisperreadme",
+  "bugs": "https://github.com/ardakkk/use-whisper/issues",
   "license": "MIT",
-  "author": "Albert Shim <albert@synomus.io>",
-  "repository": "github:albertsyh/use-whisper",
+  "author": "Ardak Tileu <arda.tileu@gmail.com>",
+  "repository": "github:ardakkk/use-whisper",
   "scripts": {
     "dev": "env NODE_ENV=development tsup",
     "build": "env NODE_ENV=production tsup",
@@ -33,8 +33,8 @@
   },
   "dependencies": {
     "@chengsokdara/react-hooks-async": "^0.0.2",
-    "@ffmpeg/core": "^0.11.0",
-    "@ffmpeg/ffmpeg": "^0.11.6",
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
     "axios": "^1.7.2",
     "hark": "^1.2.3",
     "lamejs": "zhuker/lamejs",

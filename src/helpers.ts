@@ -1,6 +1,6 @@
 import { ffmpegCoreUrl, silenceRemoveCommand } from './configs'
 import { FfmpegEncodeProps } from './types'
-import { createFFmpeg } from '@ffmpeg/ffmpeg'
+import { FFmpeg } from '@ffmpeg/ffmpeg'
 
 export async function encodeWithFfmpeg({
   showLogs,
@@ -8,17 +8,23 @@ export async function encodeWithFfmpeg({
   threshold,
   removeSilence,
 }: FfmpegEncodeProps): Promise<Blob | null> {
-  const ffmpeg = createFFmpeg({
-    mainName: 'main',
-    corePath: ffmpegCoreUrl,
-    log: showLogs,
-  })
-  if (!ffmpeg.isLoaded()) {
-    await ffmpeg.load()
+  const ffmpeg = new FFmpeg()
+  if (!ffmpeg.loaded) {
+    await ffmpeg.load({
+      coreURL: ffmpegCoreUrl
+    })
   }
+
+  if (showLogs) {
+    ffmpeg.on("log", ({ message }) => {
+      console.log(message)
+    })
+  }
+
   const buffer = await currentBlob.arrayBuffer()
   console.log({ in: buffer.byteLength })
-  ffmpeg.FS('writeFile', 'in.wav', new Uint8Array(buffer))
+  await ffmpeg.writeFile('in.wav', new Uint8Array(buffer))
+
   const ffmpegParams = [
     '-i', // Input
     'in.wav',
@@ -29,18 +35,23 @@ export async function encodeWithFfmpeg({
     '-ar', // Audio sample rate
     '44100',
   ]
+
   if (removeSilence) {
     ffmpegParams.push(
       '-af', // Audio filter = remove silence from start to end with 2 seconds in between
       silenceRemoveCommand
     )
   }
+
   ffmpegParams.push('out.mp3')
-  await ffmpeg.run(...ffmpegParams)
-  const out = ffmpeg.FS('readFile', 'out.mp3')
-  console.log({ out: out.buffer.byteLength, length: out.length })
-  ffmpeg.exit()
+  await ffmpeg.exec(ffmpegParams)
+
+  const outData = await ffmpeg.readFile('out.mp3')
+
+  await ffmpeg.terminate()
+
   // This checks if it is less than the threshold to be considered as an empty mp3 file
-  if (out.length <= threshold) return null
-  return new Blob([out.buffer], { type: 'audio/mpeg' })
+  if (outData instanceof Uint8Array && outData.byteLength <= threshold) return null
+
+  return new Blob([outData], { type: 'audio/mpeg' })
 }

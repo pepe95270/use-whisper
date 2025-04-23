@@ -17,17 +17,17 @@ https://user-images.githubusercontent.com/2707253/224465747-0b1ee159-21dd-4cd0-a
 - ### Install
 
 ```
-npm i @albertsyh/use-whisper
+npm i @fusemateo/use-whisper
 ```
 
 ```
-yarn add @albertsyh/use-whisper
+yarn add @fusemateo/use-whisper
 ```
 
 - ### Usage
 
 ```jsx
-import { useWhisper } from '@albertsyh/use-whisper'
+import { useWhisper } from '@fusemateo/use-whisper'
 
 const App = () => {
   const {
@@ -59,7 +59,7 @@ const App = () => {
 - ###### Custom Server (keep OpenAI API token secure)
 
 ```jsx
-import { useWhisper } from '@albertsyh/use-whisper'
+import { useWhisper } from '@fusemateo/use-whisper'
 
 const App = () => {
   /**
@@ -108,7 +108,7 @@ const App = () => {
 - ###### Real-time streaming trascription
 
 ```jsx
-import { useWhisper } from '@albertsyh/use-whisper'
+import { useWhisper } from '@fusemateo/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -131,7 +131,7 @@ const App = () => {
 - ###### Remove silence before sending to Whisper to save cost
 
 ```jsx
-import { useWhisper } from '@albertsyh/use-whisper'
+import { useWhisper } from '@fusemateo/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -151,7 +151,7 @@ const App = () => {
 - ###### Auto start recording on component mounted
 
 ```jsx
-import { useWhisper } from '@albertsyh/use-whisper'
+import { useWhisper } from '@fusemateo/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -171,7 +171,7 @@ const App = () => {
 - ###### Keep recording as long as the user is speaking
 
 ```jsx
-import { useWhisper } from '@albertsyh/use-whisper'
+import { useWhisper } from '@fusemateo/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -191,7 +191,7 @@ const App = () => {
 - ###### Customize Whisper API config when autoTranscribe is true
 
 ```jsx
-import { useWhisper } from '@albertsyh/use-whisper'
+import { useWhisper } from '@fusemateo/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
