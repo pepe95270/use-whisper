@@ -13,7 +13,7 @@ export type UseWhisperConfig = {
   onDataAvailable?: (blob: Blob) => void
   onTranscribeWhenSilent?: (
     blob?: Blob,
-    complete?: boolean
+    complete?: boolean,
   ) => Promise<UseWhisperTranscript>
   onTranscribe?: (blob: Blob) => Promise<UseWhisperTranscript>
   onStreamTranscribe?: (blob: Blob) => Promise<UseWhisperTranscript>

@@ -203,7 +203,7 @@ export const useWhisper: UseWhisperHook = (config) => {
           }
           recorder.current = new RecordRTCPromisesHandler(
             stream.current,
-            recorderConfig
+            recorderConfig,
           )
         }
         if (!encoder.current) {
@@ -418,7 +418,7 @@ export const useWhisper: UseWhisperHook = (config) => {
 
         console.log(
           'Finished, number of blobs waiting - ',
-          waitingForSilenceChunks.current.length
+          waitingForSilenceChunks.current.length,
         )
 
         if (waitingForSilenceChunks.current.length > 0) {
@@ -527,7 +527,7 @@ export const useWhisper: UseWhisperHook = (config) => {
           if (encoder.current) {
             const buffer = await data.arrayBuffer()
             const mp3chunk = encoder.current.encodeBuffer(
-              new Int16Array(buffer)
+              new Int16Array(buffer),
             )
             const mp3blob = new Blob([mp3chunk], { type: 'audio/mpeg' })
             if (concatChunk) {
@@ -606,7 +606,7 @@ export const useWhisper: UseWhisperHook = (config) => {
       })
       return response.data.text
     },
-    [apiKey, mode, whisperConfig]
+    [apiKey, mode, whisperConfig],
   )
 
   return useMemo(() => {

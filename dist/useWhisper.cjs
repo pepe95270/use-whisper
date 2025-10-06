@@ -1,12 +1,12 @@
 'use strict';
 
-var chunk7CWDALWD_cjs = require('./chunk-7CWDALWD.cjs');
-require('./chunk-UEVFW4G7.cjs');
-require('./chunk-HQQBAIDG.cjs');
+var chunkOEUETP5F_cjs = require('./chunk-OEUETP5F.cjs');
+require('./chunk-RH7GQYP2.cjs');
+require('./chunk-QXHWVLTD.cjs');
 
 
 
 Object.defineProperty(exports, 'useWhisper', {
 	enumerable: true,
-	get: function () { return chunk7CWDALWD_cjs.a; }
+	get: function () { return chunkOEUETP5F_cjs.a; }
 });

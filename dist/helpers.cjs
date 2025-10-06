@@ -1,11 +1,11 @@
 'use strict';
 
-var chunkUEVFW4G7_cjs = require('./chunk-UEVFW4G7.cjs');
-require('./chunk-HQQBAIDG.cjs');
+var chunkRH7GQYP2_cjs = require('./chunk-RH7GQYP2.cjs');
+require('./chunk-QXHWVLTD.cjs');
 
 
 
 Object.defineProperty(exports, 'encodeWithFfmpeg', {
 	enumerable: true,
-	get: function () { return chunkUEVFW4G7_cjs.a; }
+	get: function () { return chunkRH7GQYP2_cjs.a; }
 });

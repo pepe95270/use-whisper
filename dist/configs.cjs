@@ -1,26 +1,26 @@
 'use strict';
 
-var chunkHQQBAIDG_cjs = require('./chunk-HQQBAIDG.cjs');
+var chunkQXHWVLTD_cjs = require('./chunk-QXHWVLTD.cjs');
 
 
 
 Object.defineProperty(exports, 'defaultStopTimeout', {
 	enumerable: true,
-	get: function () { return chunkHQQBAIDG_cjs.a; }
+	get: function () { return chunkQXHWVLTD_cjs.a; }
 });
-Object.defineProperty(exports, 'ffmpegCoreUrl', {
+Object.defineProperty(exports, 'ffmpegUrl', {
 	enumerable: true,
-	get: function () { return chunkHQQBAIDG_cjs.b; }
+	get: function () { return chunkQXHWVLTD_cjs.b; }
 });
 Object.defineProperty(exports, 'silenceRemoveCommand', {
 	enumerable: true,
-	get: function () { return chunkHQQBAIDG_cjs.c; }
+	get: function () { return chunkQXHWVLTD_cjs.c; }
 });
 Object.defineProperty(exports, 'silenceThreshold', {
 	enumerable: true,
-	get: function () { return chunkHQQBAIDG_cjs.e; }
+	get: function () { return chunkQXHWVLTD_cjs.e; }
 });
 Object.defineProperty(exports, 'whisperApiEndpoint', {
 	enumerable: true,
-	get: function () { return chunkHQQBAIDG_cjs.d; }
+	get: function () { return chunkQXHWVLTD_cjs.d; }
 });
