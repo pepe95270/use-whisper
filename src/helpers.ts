@@ -11,7 +11,7 @@ export async function encodeWithFfmpeg({
   const ffmpeg = new FFmpeg()
   if (!ffmpeg.loaded) {
     await ffmpeg.load({
-      coreURL: ffmpegUrl,
+      coreURL: ffmpegUrl + 'ffmpeg-core.js',
     })
   }
 
