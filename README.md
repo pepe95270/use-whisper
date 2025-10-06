@@ -2,7 +2,10 @@
 
 React Hook for OpenAI Whisper API with speech recorder, real-time transcription and silence removal built-in
 
-This is built directly on top of [@chengsokdara/use-whisper](https://github.com/chengsokdara/use-whisper)
+This is built directly on top of [@chengsokdara/use-whisper](https://github.com/chengsokdara/use-whisper) forked from [@albertsyh/use-whisper](https://github.com/albertsyh/use-whisper) and [@fusemateo/use-whisper](https://github.com/ardakkk/use-whisper)
+First commit was adapted from hrishioa's commit (https://github.com/albertsyh/use-whisper/pull/4/commits/4ab160291c6672427b4c08bb85ece32d59639392)
+
+The goal of this fork is for me to see if I acheive to stream correctly and to merge with another fork (approach with workers)
 
 ---
 
@@ -17,17 +20,17 @@ https://user-images.githubusercontent.com/2707253/224465747-0b1ee159-21dd-4cd0-a
 - ### Install
 
 ```
-npm i @fusemateo/use-whisper
+npm i @pepe95270/use-whisper
 ```
 
 ```
-yarn add @fusemateo/use-whisper
+yarn add @pepe95270/use-whisper
 ```
 
 - ### Usage
 
 ```jsx
-import { useWhisper } from '@fusemateo/use-whisper'
+import { useWhisper } from '@pepe95270/use-whisper'
 
 const App = () => {
   const {
@@ -59,7 +62,7 @@ const App = () => {
 - ###### Custom Server (keep OpenAI API token secure)
 
 ```jsx
-import { useWhisper } from '@fusemateo/use-whisper'
+import { useWhisper } from '@pepe95270/use-whisper'
 
 const App = () => {
   /**
@@ -108,7 +111,7 @@ const App = () => {
 - ###### Real-time streaming trascription
 
 ```jsx
-import { useWhisper } from '@fusemateo/use-whisper'
+import { useWhisper } from '@pepe95270/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -131,7 +134,7 @@ const App = () => {
 - ###### Remove silence before sending to Whisper to save cost
 
 ```jsx
-import { useWhisper } from '@fusemateo/use-whisper'
+import { useWhisper } from '@pepe95270/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -151,7 +154,7 @@ const App = () => {
 - ###### Auto start recording on component mounted
 
 ```jsx
-import { useWhisper } from '@fusemateo/use-whisper'
+import { useWhisper } from '@pepe95270/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -171,7 +174,7 @@ const App = () => {
 - ###### Keep recording as long as the user is speaking
 
 ```jsx
-import { useWhisper } from '@fusemateo/use-whisper'
+import { useWhisper } from '@pepe95270/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
@@ -191,7 +194,7 @@ const App = () => {
 - ###### Customize Whisper API config when autoTranscribe is true
 
 ```jsx
-import { useWhisper } from '@fusemateo/use-whisper'
+import { useWhisper } from '@pepe95270/use-whisper'
 
 const App = () => {
   const { transcript } = useWhisper({
