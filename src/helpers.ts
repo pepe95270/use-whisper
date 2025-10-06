@@ -46,7 +46,7 @@ export async function encodeWithFfmpeg({
   ffmpegParams.push('out.mp3')
   await ffmpeg.exec(ffmpegParams)
 
-  const outData = await ffmpeg.readFile('out.mp3')
+  const outData = (await ffmpeg.readFile('out.mp3')) as Uint8Array
 
   await ffmpeg.terminate()
 
@@ -54,5 +54,5 @@ export async function encodeWithFfmpeg({
   if (outData instanceof Uint8Array && outData.byteLength <= threshold)
     return null
 
-  return new Blob([outData], { type: 'audio/mpeg' })
+  return new Blob([outData.slice()], { type: 'audio/mpeg' })
 }

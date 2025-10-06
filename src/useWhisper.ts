@@ -36,7 +36,7 @@ const defaultConfig: UseWhisperConfig = {
   onTranscribeWhenSilent: undefined,
   onTranscribe: undefined,
   onStreamTranscribe: undefined,
-  showLogs: false,
+  showLogs: true,
   silenceBufferThreshold: silenceThreshold,
 }
 
